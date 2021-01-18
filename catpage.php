@@ -25,6 +25,7 @@ if (base64_decode($_GET['id'])) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Planet Hosting Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
@@ -162,12 +163,18 @@ if (isset($id)) {
 				<li><strong>High Performance</strong> Servers</li>
 				<li><strong>location</strong> : <img src="images/india.png"></li>
 			</ul>
-		</div>
-		<?php echo "<a href='cart.php'>buy now</a>" ?>
-		</div><?php
+			</div>
+				<?php echo "<a href='checkout.php?name=" . base64_encode($productName) . "'>buy now</a>" ?>
+			</div>
+
+		
+		<?php
 			}
 		}
 	} ?>
+
+	
+
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -181,6 +188,11 @@ if (isset($id)) {
 </div>
 
 </div>
+
+
+
+
+
 <div class="whatdo">
 						<div class="container">
 							<h3><?php echo $productName; ?> Features</h3>

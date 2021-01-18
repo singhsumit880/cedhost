@@ -58,7 +58,73 @@ if(!isset( $_SESSION['admin'])){
                                             <th>Free Domain</th>
                                             <th>Language / Technology Support</th>
                                             <th>Mail Box</th>
-                                            <th>Action</th>
+                                            <th>Action</th>if (isset($_GET['name'])) {
+ $name = base64_decode($_GET['name']);
+ $prod = $product->fetch_cart_products($_SESSION['id_sub'], $name);
+ foreach ($prod as $element) {
+  $productId             = $element['id'];
+  $category              = $element['prod_parent_id'];
+  $productName           = $element['prod_name'];
+  $_SESSION['prod_name'] = $productName;
+  $link                  = $element['html'];
+  $monthlyPrice          = $element['mon_price'];
+  $annualPrice           = $element['annual_price'];
+  $sku                   = $element['sku'];
+  $description           = json_decode($element['description']);
+  $webspace              = $description->Web_Space;
+  $bandwidth             = $description->Band_Width;
+  $freeDomain            = $description->Free_Domain;
+  $language              = $description->Language_Technology;
+  $mailbox               = $description->Mail_Box;
+  $availablity           = $element['prod_available'];
+  $datavalue             = array(
+   "productid"     => $productId,
+   "category"      => $category,
+   "product_name"  => $productName,
+   "monthly_price" => $monthlyPrice,
+   "annual_price"  => $annualPrice,if (isset($_GET['name'])) {
+ $name = base64_decode($_GET['name']);
+ $prod = $product->fetch_cart_products($_SESSION['id_sub'], $name);
+ foreach ($prod as $element) {
+  $productId             = $element['id'];
+  $category              = $element['prod_parent_id'];
+  $productName           = $element['prod_name'];
+  $_SESSION['prod_name'] = $productName;
+  $link                  = $element['html'];
+  $monthlyPrice          = $element['mon_price'];
+  $annualPrice           = $element['annual_price'];
+  $sku                   = $element['sku'];
+  $description           = json_decode($element['description']);
+  $webspace              = $description->Web_Space;
+  $bandwidth             = $description->Band_Width;
+  $freeDomain            = $description->Free_Domain;
+  $language              = $description->Language_Technology;
+  $mailbox               = $description->Mail_Box;
+  $availablity           = $element['prod_available'];
+  $datavalue             = array(
+   "productid"     => $productId,
+   "category"      => $category,
+   "product_name"  => $productName,
+   "monthly_price" => $monthlyPrice,
+   "annual_price"  => $annualPrice,
+   "sku"           => $sku,
+   "webspace"      => $description->Web_Space,
+   "band_width"    => $description->Band_Width,
+   "freedomain"    => $description->Free_Domain,
+   "language"      => $description->Language_Technology,
+   "mailbox"       => $description->Mail_Box,
+  );
+
+ }
+   "sku"           => $sku,
+   "webspace"      => $description->Web_Space,
+   "band_width"    => $description->Band_Width,
+   "freedomain"    => $description->Free_Domain,
+   "language"      => $description->Language_Technology,
+   "mailbox"       => $description->Mail_Box,
+  );
+
+ }
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -70,7 +136,7 @@ if(!isset( $_SESSION['admin'])){
                                         $data=json_decode($value['description']);
                                         $fetch_category=$category->fetch_table_category($value['prod_parent_id']); 
                                         if ($value['prod_available']==1) {
-                                            echo "<tr class='text-dark'><td>$fetch_category</td><td>$value[prod_name]</td><td>Available</td><td>$$value[mon_price]</td><td>$$value[annual_price]</td><td>$data->Web_Space GB</td><td>$data->Band_Width GB</td><td>$data->Free_Domain</td><td>$data->Language_Technology</td><td>$data->Mail_Box</td><td><a type='button' class='btn btn-success' href='edit_new_product.php?id=".$value['id']."&&data=".$value['id']."'>edit</a><a onClick='javascript: return confirm('Please confirm deletion');' type='button' class='btn btn-danger' href='delete.php?id=".$value['prod_id']."&&data=delete_product_subproduct'>Delete</a></td></tr>";
+                                            echo "<tr class='text-dark'><td>$fetch_category</td><td>$value[prod_name]</td><td>Available</td><td>₹$value[mon_price]</td><td>₹$value[annual_price]</td><td>$data->Web_Space GB</td><td>$data->Band_Width GB</td><td>$data->Free_Domain</td><td>$data->Language_Technology</td><td>$data->Mail_Box</td><td><a type='button' class='btn btn-success' href='edit_new_product.php?id=".$value['id']."&&data=".$value['id']."'>edit</a><a onClick='javascript: return confirm('Please confirm deletion');' type='button' class='btn btn-danger' href='delete.php?id=".$value['prod_id']."&&data=delete_product_subproduct'>Delete</a></td></tr>";
                                         } else {
                                             echo "<tr class='text-dark'><td>$fetch_category</td><td>$value[prod_name]</td><td>Unavailable</td><td>$$value[mon_price]</td><td>$$value[annual_price]</td><td>$data->Web_Space GB</td><td>$data->Band_Width GB</td><td>$data->Free_Domain</td><td>$data->Language_Technology</td><td>$data->Mail_Box</td><td><a type='button' class='btn btn-warning' href='edit_new_product.php?id=".$value['id']."&&data=".$value['id']."'>edit</a><a onClick='javascript: return confirm('Please confirm deletion');' type='button' class='btn btn-danger' href='delete.php?id=".$value['prod_id']."&&data=delete_product_subproduct'>Delete</a></td></tr>";
 

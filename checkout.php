@@ -77,13 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--lightboxfiles-->
     <script type="text/javascript">
     $(function() {
-        $('.team a').Chocolat();
-    });
-    </script>
-    <script type="text/javascript" src="js/jquery.hoverdir.js"></script>
-    <script type="text/javascript">
-    $(function() {
-
+        $('.team a      <h4>Quantity : <?php echo $value1[5]?></h4>
         $(' #da-thumbs > li ').each(function() {
             $(this).hoverdir();
         });
@@ -117,7 +111,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <?php
 if (isset($_SESSION['datas'])) {
  foreach ($_SESSION['datas'] as $key => $value) {
-  echo "<tr><td>$value[product_name]</td><td>$value[monthly_price]</td><td>$value[annual_price]</td><td>$value[webspace]</td><td>$value[band_width]</td><td>$value[freedomain]</td><td>$value[language]</td><td>$value[mailbox]</td><td><a href='deletefromcart.php?id=" . $value['productid'] . "'>Delete</a></td></tr>";
+  echo "<tr><td>$value[product_name]</td><td>$value[monthly_price]</td><td>$value[annual_price]</td><td>$value[webspace]</td><td>$value[band_width]</td><td>$value[freedomain]</td><td>$value[language]</td><td>$value[mailbox]</td><td><a href='deletefromcart.php?id=" . $value['productid'] . "'>Delete</a></td> </tr>"
+
+ ;
  }
 }
 
@@ -126,6 +122,6 @@ if (isset($_SESSION['datas'])) {
             </tbody>
         </table>
     </div>
-
+    <a class="btn btn-primary" href="payment.php" role="button">CheckOut</a>
 
     <?php include 'footer.php' ?>
