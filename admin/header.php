@@ -54,7 +54,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="dashboard.php">
                                 <i class="ni ni-tv-2 text-primary"></i>
-                                <span class="nav-link-t<span class="badge badge-pill badge-dark">Dark</span>ext">Dashboard</span>
+                                <span class="nav-link-text">Dashboard</span>
                             </a>
                         </li>
                        

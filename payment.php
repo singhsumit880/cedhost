@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['email'])) {
+  header('location: login.php');
+}
 $temp=$_SESSION['datas'];
 
 
@@ -77,7 +80,7 @@ $temp=$_SESSION['datas'];
             <option value="Karnataka">Karnataka</option>
             <option value="Kerala">Kerala</option>
             <option value="Madhya Pradesh">Madhya Pradesh</option>
-            <option value<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>="Maharashtra">Maharashtra</option>
+            <option value="Maharashtra">Maharashtra</option>
             <option value="Manipur">Manipur</option>
             <option value="Meghalaya">Meghalaya</option>
             <option value="Mizoram">Mizoram</option>
@@ -101,7 +104,9 @@ $temp=$_SESSION['datas'];
           <div class="form-group">
             <label for="pname">Pincode</label>
             <input type="text" class="form-control" id="pincode" placeholder="Enter pincode">
-            <button type="submit" id="cod" class="btn btn-lg btn-danger">COD</button><br>
+            <br>
+            <button type="submit" id="cod" class="btn btn-danger form-control">Cash On Delivery</button><br>
+            <br>
             <script src="https://www.paypal.com/sdk/js?client-id=ARjb-fAxVFnAiX7oTqjOFdHEwLLDt9LSw_8zfQ2DZVHQ2IkbexFjnfnoIY_hbu9tRiJ281zFDO5itDAW"></script>
             <div id="paypal-button"></div>
           </div>
@@ -129,10 +134,11 @@ $temp=$_SESSION['datas'];
   <script>
   paypal.Buttons({
  createOrder: function(data, actions){
+  var pri="<?php echo '500';?>";
    return actions.order.create({
      purchase_units:[{
        amount:{
-         value:'100'
+         value:pri
        }
      }]
    });

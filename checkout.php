@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include './class/Product.php';
 $product = new Product();
 
